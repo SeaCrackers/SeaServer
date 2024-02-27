@@ -1,17 +1,13 @@
 {
   "name": "seaserver",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/app.js",
+  "description": "A simple websocket server to de the relay between clients (hosts and palyers)",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node dist/app.js",
-    "prestart": "npx tsc"
+    "start": "node src/app.js"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "typescript": "^5.3.3"
-  },
   "dependencies": {
     "dotenv": "^16.3.1",
     "socket.io": "^4.7.4"

@@ -1,14 +1,13 @@
-const express = require('express');
-const app = express();
-const http = require('http');
-const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
+require('dotenv').config()
 
-io.on('connection', (socket) => {
-    console.log('a user connected');
+const port = process.env.PORT || 3000;
+
+const io = new Server({ /* options */ });
+
+io.on("connection", (socket) => {
+    console.log('New client connected');
 });
 
-server.listen(3000, () => {
-    console.log('listening on *:3000');
-});
+io.listen(port);
+console.log('Server listening on port '+port)

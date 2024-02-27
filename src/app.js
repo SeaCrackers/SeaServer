@@ -12,6 +12,10 @@ const io = new Server({
 
 io.on("connection", (socket) => {
     console.log('New client connected');
+    socket.on("hello", (anotherSocketId, msg) => {
+        console.log("Hello from client!")
+        socket.emit("hello");
+    });
 });
 
 io.listen(port);

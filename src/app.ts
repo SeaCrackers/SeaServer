@@ -21,9 +21,9 @@ io.on("connection", (socket) => {
         socket.leave(roomName);
         console.log("Client " + socket.id + " leaved room " + roomName);
     });
-    socket.on(RoomEvents.Broadcast,  (roomName : string, args : any) => {
-        socket.to(roomName).emit(RoomEvents.Broadcast, args);
-        console.log("Client " + socket.id + " broadcast message to room " + roomName);
+    socket.on(RoomEvents.Broadcast,  (broadcast : {room : string, content : any}) => {
+        socket.to(broadcast.room).emit(RoomEvents.Broadcast, broadcast.content);
+        console.log("Client " + socket.id + " broadcast message to room " + broadcast.room);
     });
     socket.on("disconnect", () => {
         console.log("Client " + socket.id + " disconnected");
